@@ -1,0 +1,55 @@
+{
+  "name": "banjo-invaders",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "start": "grunt dev",
+    "test": "grunt test",
+    "build": "grunt build"
+  },
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "6.7.7",
+    "babel-loader": "6.2.4",
+    "babel-preset-modern": "1.1.0",
+    "chai": "3.5.0",
+    "grunt": "1.0.1",
+    "grunt-cli": "1.2.0",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-karma": "0.12.2",
+    "grunt-webpack": "1.0.11",
+    "karma": "0.13.22",
+    "karma-chrome-launcher": "0.2.3",
+    "karma-coverage": "0.5.5",
+    "karma-firefox-launcher": "0.1.7",
+    "karma-mocha": "0.2.2",
+    "karma-phantomjs-launcher": "1.0.0",
+    "karma-sauce-launcher": "0.3.1",
+    "karma-source-map-support": "1.1.0",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-webpack": "1.7.0",
+    "mocha": "2.4.5",
+    "phantomjs-prebuilt": "2.1.7",
+    "sinon": "^2.0.0-pre",
+    "sinon-chai": "2.8.0",
+    "webpack": "2.1.0-beta.6",
+    "webpack-dev-server": "2.0.0-beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidbanjo/banjo-invaders.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voidbanjo/banjo-invaders/issues"
+  },
+  "homepage": "https://github.com/voidbanjo/banjo-invaders#readme",
+  "babel": {
+    "presets": [
+      "modern/webpack2",
+      "modern/stage1"
+    ]
+  }
+}
