@@ -1,6 +1,12 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config')();
 
+webpackConfig.module.preLoaders = [{
+  test: /\.js$/,
+  include: path.resolve('app/'),
+  loader: 'istanbul-instrumenter?esModules=true'
+}];
+
 module.exports = function(config, adtl) {
   config.set(Object.assign({
     basePath: '.',
