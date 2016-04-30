@@ -23,8 +23,18 @@ module.exports = function(grunt) {
     },
     webpack: {
       main: webpackConfig
+    },
+    "webpack-dev-server": {
+      start: {
+        webpack: webpackConfig,
+        keepalive: true
+      }
     }
   });
+
+  grunt.registerTask('dev', [
+    'webpack-dev-server:start'
+  ]);
 
   grunt.registerTask('test', [
     'clean:coverage',
