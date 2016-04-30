@@ -1,6 +1,11 @@
 import { expect } from 'chai';
 
+import init from './init';
+
 describe('sanity', () => {
+  it('should add 2', () => {
+    expect(init(2)).to.equal(4);
+  });
   it('is sane', () => {
     expect(true).to.equal(true);
     expect(true).to.not.equal(false);

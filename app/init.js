@@ -1,4 +1,4 @@
-function something(that) {
+export default function something(that) {
   return that + 2;
 }
 

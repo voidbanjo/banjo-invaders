@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-let webpackConfig = require('./webpack.config')();
+let karmaConf = require('./karma.conf');
 
 module.exports = function(config) {
   // Use ENV vars on Travis and sauce.json locally to get credentials
@@ -26,30 +26,13 @@ module.exports = function(config) {
     }
   };
 
-  config.set({
-    basePath: '.',
-    frameworks: ['source-map-support', 'mocha'],
-    files: [
-      'test-main.js'
-    ],
+  var confObj = {
     reporters: ['dots', 'coverage', 'saucelabs'],
-    preprocessors: {
-      'test-main.js': ['webpack', 'sourcemap']
-    },
-    coverageReporter: {
-      reporters: [
-        {type: 'html', subDir: './lcov'}
-      ],
-      dir: './coverage'
-    },
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_DEBUG,
-    autoWatch: false,
-
     // sauce config
     sauceLabs: {
       testName: 'banjo-invaders travis-ci',
+      // The blow in this object are because travix starts connect
+      // and opens a tunnel on it's own with the job number.
       tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
       startConnect: false
     },
@@ -58,12 +41,9 @@ module.exports = function(config) {
 
     // start these browsers
     browsers: Object.keys(customLaunchers),
-    singleRun: true,
+    singleRun: true
+  };
 
-    // webpack config
-    webpackMiddleware: {
-      noInfo: true
-    },
-    webpack: webpackConfig
-  });
+  // use the base config, give it our extras. it will handle object.assign
+  karmaConf(config, confObj);
 };

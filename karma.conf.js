@@ -1,8 +1,8 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config')();
 
-module.exports = function(config) {
-  config.set({
+module.exports = function(config, adtl) {
+  config.set(Object.assign({
     basePath: '.',
     frameworks: ['source-map-support', 'mocha'],
     files: [
@@ -14,7 +14,8 @@ module.exports = function(config) {
     },
     coverageReporter: {
       reporters: [
-        {type: 'html', subDir: './lcov'}
+        {type: 'text-summary'},
+        {type: 'html', subdir: './report-html'}
       ],
       dir: './coverage'
     },
@@ -28,5 +29,5 @@ module.exports = function(config) {
       noInfo: true
     },
     webpack: webpackConfig
-  });
+  }, adtl));
 };
