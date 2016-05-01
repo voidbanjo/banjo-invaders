@@ -33,8 +33,8 @@ module.exports = function(config) {
       testName: 'banjo-invaders travis-ci',
       // The blow in this object are because travix starts connect
       // and opens a tunnel on it's own with the job number.
-      tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
-      startConnect: false
+//      tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
+//      startConnect: false
     },
     captureTimeout: 120000,
     customLaunchers: customLaunchers,

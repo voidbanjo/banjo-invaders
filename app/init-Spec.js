@@ -1,15 +1,43 @@
 import { expect } from 'chai';
+import sinon from 'sinon';
 
-import init from './init';
+import * as init from './init';
 
-describe('sanity', () => {
-  it('should add 2', () => {
-    expect(init(2)).to.equal(4);
+import TickHandler from './utils/TickHandler';
+
+import * as tickHandler from './tickHandler';
+
+describe('init', () => {
+  let sandbox;
+
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+
+    tickHandler.default = new TickHandler();
+
+    sandbox.stub(document);
+    sandbox.stub(createjs.Ticker);
   });
-  it('is sane', () => {
-    expect(true).to.equal(true);
-    expect(true).to.not.equal(false);
-    expect(1+1).to.equal(2);
-    expect(2*2).to.equal(4);
+
+  afterEach(() => {
+    sandbox.restore();
+  });
+  
+  describe('default', () => {
+    it('should register a `domContentLoaded` listener', () => {
+      init.default();
+
+      expect(document.addEventListener).to.have.been.calledWith('DOMContentLoaded', init.ready);
+    });
+
+    it('should bind the tick listener', () => {
+      init.default();
+
+      expect(createjs.Ticker.addEventListener).to.have.been.calledWith('tick', tickHandler.default.tick);
+    });
+  });
+
+  describe('ready', () => {
+    
   });
 });

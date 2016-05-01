@@ -12,6 +12,7 @@ module.exports = function(config, adtl) {
     basePath: '.',
     frameworks: ['source-map-support', 'mocha'],
     files: [
+      './lib/createjs.min.js',
       'test-main.js'
     ],
     reporters: ['dots', 'coverage'],

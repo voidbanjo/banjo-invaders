@@ -1,5 +1,12 @@
-export default function something(that) {
-  return that + 2;
+import tickHandler from './tickHandler';
+
+export default function init() {
+  // bind addEventLister
+  document.addEventListener('DOMContentLoaded', ready);
+
+  createjs.Ticker.addEventListener('tick', tickHandler.tick);
 }
 
-console.log(something(2));
+export function ready() {
+  // things are ready, do stuff
+}
