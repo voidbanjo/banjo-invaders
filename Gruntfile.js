@@ -1,6 +1,7 @@
 const path = require('path');
 
 const webpackConfig = require('./webpack.config')();
+const webpackConfigProd = require('./webpack.config.prod');
 
 const coverageDir = path.resolve('./coverage');
 const distDir = path.resolve('./dist');
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
       }
     },
     webpack: {
-      main: webpackConfig
+      main: webpackConfigProd
     },
     "webpack-dev-server": {
       start: {

@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function() {
   return {
@@ -10,11 +11,22 @@ module.exports = function() {
       path: __dirname + '/dist',
       filename: '[name].js'
     },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
+    externals: {
+      createjs: 'createjs'
+    },
     module: {
       loaders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+        { test: /\.less$/, loader: 'style!css?minimize!less'},
+        {
+          test: /\.(gif|png|jpe?g|svg)$/, loaders: [
+            'url?limit=10000&name=[hash].[ext]',
+            'image-webpack?optimizationLevel=7&interlaced=false'
+          ]
+        }
       ]
-    }
+    },
+    plugins: [],
   }
 }
