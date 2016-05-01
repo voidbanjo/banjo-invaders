@@ -9,7 +9,14 @@ class TickHandler {
 
   registerCallback(cb) {
     if(typeof cb !== 'function') throw new Error('`cb` must be a function');
-    this.callbacks.push(cb);
+    if(this.callbacks.indexOf(cb) === -1) {
+      this.callbacks.push(cb);
+    }
+  }
+
+  unregisterCallback(cb) {
+    if(typeof cb !== 'function') throw new Error('`cb` must be a function');
+    this.callbacks = this.callbacks.filter(e => e !== cb);
   }
 }
 
