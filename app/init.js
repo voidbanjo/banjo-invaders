@@ -25,6 +25,10 @@ export function ready() {
   const background = new Shape();
   const backImg = new Image();
 
+  tickHandler.registerCallback(function() {
+    stage.update();
+  });
+
   // set the initial canvas properties
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -36,10 +40,9 @@ export function ready() {
   // set background image src
   backImg.src = require('./assets/background-tile.png');
 
-  stage.addChild(background);
-  background.x = 0;
-  background.y = 0;
   background.graphics.beginBitmapFill(backImg, 'repeat').drawRect(0, 0, canvas.width, canvas.height);
+
+  stage.addChild(background);
 }
 
 init();
