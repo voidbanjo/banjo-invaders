@@ -12,6 +12,6 @@ tar -jxf firefox-46.tar.bz2
 
 sudo mv firefox /opt/firefox46
 
-sudo chown root:users /opt/firefox46
+sudo chown root:users -R /opt/firefox46
 
-sudo ln -s /opt/firefox/firefox /usr/bin/firefox
+sudo ln -s /opt/firefox46/firefox /usr/bin/firefox
