@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import TickHandler from './TickHandler';
+import TickHandler from './tick-handler';
 
 describe('utils/TickHandler', () => {
   describe('constructor', () => {

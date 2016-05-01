@@ -1,4 +1,4 @@
-import tickHandler from './tickHandler';
+import tickHandler from './tick-handler';
 
 export default function init() {
   // bind addEventLister

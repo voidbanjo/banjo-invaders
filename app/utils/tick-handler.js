@@ -1,5 +1,6 @@
 class TickHandler {
   constructor() {
+    
   }
 
   tick() {

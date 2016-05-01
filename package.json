@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "start": "grunt dev",
+    "karma-start": "./node_modules/.bin/karma start",
+    "karma-run": "./node_modules/.bin/karma run",
     "test": "grunt test",
     "build": "grunt build"
   },

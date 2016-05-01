@@ -3,9 +3,9 @@ import sinon from 'sinon';
 
 import * as init from './init';
 
-import TickHandler from './utils/TickHandler';
+import TickHandler from './utils/tick-handler';
 
-import * as tickHandler from './tickHandler';
+import * as tickHandler from './tick-handler';
 
 describe('init', () => {
   let sandbox;
