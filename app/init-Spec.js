@@ -38,6 +38,10 @@ describe('init', () => {
   });
 
   describe('ready', () => {
+    it('should do nothing', () => {
+      init.ready();
 
+      expect('everything').to.be.OK; // shh. it's okay
+    });
   });
 });
