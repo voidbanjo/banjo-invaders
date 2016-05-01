@@ -38,7 +38,7 @@ export function ready() {
   document.body.appendChild(canvas);
 
   // set background image src
-  backImg.src = require('./assets/background-tile.png');
+  backImg.src = require('./assets/background-tile-512.png');
 
   background.graphics.beginBitmapFill(backImg, 'repeat').drawRect(0, 0, canvas.width, canvas.height);
 
