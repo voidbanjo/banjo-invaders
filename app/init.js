@@ -36,10 +36,6 @@ export function ready() {
   // set background image src
   backImg.src = require('./assets/background-tile.png');
 
-  tickHandler.registerCallback(function() {
-    stage.update();
-  })
-
   stage.addChild(background);
   background.x = 0;
   background.y = 0;

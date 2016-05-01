@@ -52,7 +52,7 @@ module.exports = function(config, adtl) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox'],
     singleRun: false,
     webpackMiddleware: {
       noInfo: true
