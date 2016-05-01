@@ -15,7 +15,7 @@ describe('init', () => {
 
     tickHandler.default = new TickHandler();
 
-    sandbox.stub(document);
+    sandbox.stub(document, 'addEventListener');
     sandbox.stub(createjs.Ticker, 'addEventListener');
   });
 
