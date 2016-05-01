@@ -2,8 +2,9 @@ const path = require('path');
 const webpackConfig = require('./webpack.config')();
 
 webpackConfig.module.preLoaders = [{
-  test: /\.js$/,
+  test: /.js$/i,
   include: path.resolve('app/'),
+  exclude: /(spec|test)\.js$/i,
   loader: 'istanbul-instrumenter?esModules=true'
 }];
 
@@ -20,11 +21,32 @@ module.exports = function(config, adtl) {
       'test-main.js': ['webpack', 'sourcemap']
     },
     coverageReporter: {
+      dir: './coverage',
       reporters: [
         {type: 'text-summary'},
         {type: 'html', subdir: './report-html'}
       ],
-      dir: './coverage'
+      check: {
+        global: {
+          statements: 85,
+          branches: 85,
+          functions: 85,
+          lines: 85,
+          excludes: []
+        },
+        each: {
+          statements: 100,
+          branches: 80,
+          functions: 80,
+          lines: 100,
+          excludes: [],
+          overrides: {
+            'baz/component/**/*.js': {
+              statements: 98
+            }
+          }
+        }
+      }
     },
     port: 9876,
     colors: true,

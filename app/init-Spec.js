@@ -16,13 +16,13 @@ describe('init', () => {
     tickHandler.default = new TickHandler();
 
     sandbox.stub(document);
-    sandbox.stub(createjs.Ticker);
+    sandbox.stub(createjs.Ticker, 'addEventListener');
   });
 
   afterEach(() => {
     sandbox.restore();
   });
-  
+
   describe('default', () => {
     it('should register a `domContentLoaded` listener', () => {
       init.default();
@@ -38,6 +38,6 @@ describe('init', () => {
   });
 
   describe('ready', () => {
-    
+
   });
 });
