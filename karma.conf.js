@@ -1,5 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const webpackConfig = require('./webpack.config')();
+
+webpackConfig.plugins.push(
+  new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('testing')
+    }
+  })
+);
 
 webpackConfig.module.preLoaders = [{
   test: /.js$/i,

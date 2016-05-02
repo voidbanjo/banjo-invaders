@@ -9,9 +9,9 @@ module.exports = function() {
     },
     output: {
       path: __dirname + '/dist',
-      filename: '[name].js'
+      filename: '[name].js',
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'inline-source-map',
     externals: {
       createjs: 'createjs'
     },
@@ -21,7 +21,8 @@ module.exports = function() {
         { test: /\.less$/, loader: 'style!css?minimize!less'},
         {
           test: /\.(gif|png|jpe?g|svg)$/, loaders: [
-            'url?limit=10000&name=[hash].[ext]',
+            //'url?limit=10000&name=[hash].[ext]',
+            'file?name=[sha1:hash:hex].[ext]',
             'image-webpack?optimizationLevel=7&interlaced=false'
           ]
         }
