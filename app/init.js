@@ -2,6 +2,8 @@ import tickHandler from './tick-handler';
 
 import assetManifest from './asset-manifest';
 
+import DebugTool from './utils/debug-tools.js'
+
 import {
   LoadQueue,
   Stage,
@@ -64,7 +66,11 @@ export function ready(queue) {
   document.body.appendChild(canvas);
   // register the tick callback for updating the stage (won't draw without)
   /* istanbul ignore next */
+  const debugTool = window.dtool = new DebugTool(stage);
+  debugTool.create();
+
   tickHandler.registerCallback(function() {
+    debugTool.update();
     stage.update();
   });
 }
