@@ -19,7 +19,7 @@ describe('init', () => {
     sandbox = sinon.sandbox.create();
 
     ready = sandbox.stub();
-    tickHandler = new TickHandler();
+    tickHandler = tickHandlerObj.default = new TickHandler();
     queue = {loadManifest:sandbox.stub()}
 
     sandbox.stub(document, 'addEventListener');
@@ -111,6 +111,17 @@ describe('init', () => {
       init.ready(queue);
 
       expect(document.body.appendChild).to.have.been.calledOnce;
+    });
+
+    describe('tickHandler registerCallback', () => {
+      it('should register a tickHandler callback', () => {
+        init.ready(queue);
+
+        expect(tickHandler.registerCallback).to.have.been.calledOnce;
+        tickHandler.registerCallback.firstCall.args[0]();
+        // expect stage to update
+        // expect debugTool to update
+      });
     });
   });
 });

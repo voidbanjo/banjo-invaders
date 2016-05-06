@@ -65,7 +65,6 @@ export function ready(queue) {
   // inject the canvas
   document.body.appendChild(canvas);
   // register the tick callback for updating the stage (won't draw without)
-  /* istanbul ignore next */
   const debugTool = window.dtool = new DebugTool(stage);
   debugTool.create();
 
